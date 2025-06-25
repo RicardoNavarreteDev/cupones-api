@@ -2,20 +2,6 @@
 
 Este proyecto implementa una API en Python que permite aplicar cupones de descuento y calcular precios finales con impuestos. También se configuró un flujo de integración continua con GitHub Actions para garantizar calidad mediante pruebas automatizadas.
 
-🛠️ Estructura del Proyecto
-
-cupones-api/
-├── app/
-│   ├── __init__.py
-│   ├── cupones.py
-│   └── api.py
-├── tests/
-│   ├── test_cupones.py
-│   └── test_api.py
-├── venv/
-├── requirements.txt
-└── .github/workflows/test-regresion.yml
-
 📌 Proceso de Desarrollo
 
 1. Estructura Inicial
