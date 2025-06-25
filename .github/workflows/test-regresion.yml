@@ -1,31 +1,34 @@
-name: Pruebas regresion
+name: Test Regresión
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
-    branches: [main]
+    branches: [main, master]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout código
+        uses: actions/checkout@v3
 
-      - name: Configurar Python
+      - name: Configurar Python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
       - name: Instalar dependencias
+        shell: powershell
         run: |
           python -m venv venv
-          source venv/bin/activate
-          python -m pip install --upgrade pip
+          .\venv\Scripts\Activate.ps1
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Ejecutar tests con pytest
+        shell: powershell
         run: |
-          source venv/bin/activate
-          pytest
+          .\venv\Scripts\Activate.ps1
+          pytest --maxfail=1 --disable-warnings -q
